@@ -1,0 +1,51 @@
+CREATE TABLE [dbo].[users] (
+    [UserID]    INT            IDENTITY (1, 1) NOT NULL,
+    [FirstName] NVARCHAR (50)  NOT NULL,
+    [LastName]  NVARCHAR (50)  NOT NULL,
+    [Sex]       NVARCHAR (10)  NOT NULL,
+    [Age]       INT            NOT NULL,
+    [State]     NVARCHAR (50)  NOT NULL,
+    [Email]     NVARCHAR (100) NOT NULL,
+    [Username]  NVARCHAR (20)  NOT NULL,
+    [Password]  NVARCHAR (100) NOT NULL,
+    PRIMARY KEY CLUSTERED ([UserID] ASC),
+    CHECK ([Age]>=(1) AND [Age]<=(150))
+);
+CREATE TABLE [dbo].[Books] (
+    [BookId]        INT            IDENTITY (1, 1) NOT NULL,
+    [title]         NVARCHAR (255) NULL,
+    [Author]        NVARCHAR (255) NULL,
+    [ISBN]          NVARCHAR (20)  NULL,
+    [DatePublished] INT            NULL,
+    [genre]         NVARCHAR (100) NULL,
+    PRIMARY KEY CLUSTERED ([BookId] ASC)
+);
+
+CREATE TABLE [dbo].[Books2] (
+    [BookId]        INT            IDENTITY (1, 1) NOT NULL,
+    [title]         NVARCHAR (255) NULL,
+    [Author]        NVARCHAR (255) NULL,
+    [ISBN]          NVARCHAR (20)  NULL,
+    [DatePublished] INT            NULL,
+    [genre]         NVARCHAR (100) NULL,
+    PRIMARY KEY CLUSTERED ([BookId] ASC)
+);
+
+-- Insert 15 books into the Books table
+INSERT INTO [dbo].[Books] (title, Author, ISBN, DatePublished, genre)
+VALUES 
+('To Kill a Mockingbird', 'Harper Lee', '9780061120084', 1960, 'Fiction'),
+('1984', 'George Orwell', '9780451524935', 1949, 'Dystopian'),
+('Pride and Prejudice', 'Jane Austen', '9780141192475', 1813, 'Romance'),
+('The Great Gatsby', 'F. Scott Fitzgerald', '9780743273565', 1925, 'Fiction'),
+('Moby Dick', 'Herman Melville', '9781503280786', 1851, 'Adventure'),
+('War and Peace', 'Leo Tolstoy', '9780199232765', 1869, 'Historical'),
+('The Catcher in the Rye', 'J.D. Salinger', '9780316769488', 1951, 'Fiction'),
+('The Hobbit', 'J.R.R. Tolkien', '9780547928227', 1937, 'Fantasy'),
+('Fahrenheit 451', 'Ray Bradbury', '9781451673319', 1953, 'Dystopian'),
+('Jane Eyre', 'Charlotte Brontë', '9780142437209', 1847, 'Romance'),
+('Crime and Punishment', 'Fyodor Dostoevsky', '9780486454115', 1866, 'Crime'),
+('Wuthering Heights', 'Emily Brontë', '9780141439556', 1847, 'Gothic'),
+('Brave New World', 'Aldous Huxley', '9780060850524', 1932, 'Science Fiction'),
+('The Odyssey', 'Homer', '9780140268867', -800, 'Epic'),
+('Les Misérables', 'Victor Hugo', '9780451419439', 1862, 'Historical');
